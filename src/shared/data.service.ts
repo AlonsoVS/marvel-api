@@ -2,19 +2,19 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { catchError, map, throwError } from 'rxjs';
 import { ExternalServices } from './external.services.enum';
-let crypto = require('crypto');
+import { constants } from './constants';
+import { crypto } from './utils';
 
 @Injectable()
 export class DataService {
-  private ts = 1;
-  private publicApiKey = '88c3ff6d87f879834564ed04c53705ee';
-  private privateApiKey = '5ceadda8d4b147128abbc0f466e4579777a8321b';
-  private hash = this.md5(this.ts + this.privateApiKey + this.publicApiKey);
+  private hash = crypto.generateHash(
+    constants.TS + constants.PRIVATE_API_KEY + constants.PUBLIC_API_KEY,
+  );
 
   constructor(private httpService: HttpService) {}
 
   getAll<T>(externalService: ExternalServices) {
-    const url = `https://gateway.marvel.com:443/v1/public/${externalService}?ts=${this.ts}&apikey=${this.publicApiKey}&hash=${this.hash}`;
+    const url = `https://gateway.marvel.com:443/v1/public/${externalService}?ts=${constants.TS}&apikey=${constants.PUBLIC_API_KEY}&hash=${this.hash}`;
 
     return this.httpService.get<T>(url).pipe(
       map((response) => response.data),
@@ -23,9 +23,5 @@ export class DataService {
         return throwError(() => error);
       }),
     );
-  }
-
-  private md5(string: string) {
-    return crypto.createHash('md5').update(string).digest('hex');
   }
 }
