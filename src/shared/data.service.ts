@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { catchError, map, throwError } from 'rxjs';
 import { ExternalServices } from './external.services.enum';
-import { constants } from './constants';
+import { buildExternalServiceUrl, constants } from './constants';
 import { crypto } from './utils';
 
 @Injectable()
@@ -14,7 +14,12 @@ export class DataService {
   constructor(private httpService: HttpService) {}
 
   getAll<T>(externalService: ExternalServices) {
-    const url = `https://gateway.marvel.com:443/v1/public/${externalService}?ts=${constants.TS}&apikey=${constants.PUBLIC_API_KEY}&hash=${this.hash}`;
+    const url = buildExternalServiceUrl(
+      externalService,
+      constants.TS,
+      this.hash,
+      constants.PUBLIC_API_KEY,
+    );
 
     return this.httpService.get<T>(url).pipe(
       map((response) => response.data),
