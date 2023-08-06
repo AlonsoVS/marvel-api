@@ -2,12 +2,13 @@ import { Field, Int, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class CharacterSummaryOutputType {
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   resourceURI: string;
-  @Field(() => String)
+
+  @Field(() => String, { nullable: true })
   name: string;
 
-  @Field(() => String)
+  @Field(() => String, { nullable: true })
   role: string;
 }
 

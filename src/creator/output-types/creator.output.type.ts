@@ -61,8 +61,8 @@ export class CreatorOutputType {
   @Field(() => StoriesOutputType)
   stories: StoriesOutputType;
 
-  @Field(() => [EventsOutputType])
-  events: EventsOutputType[];
+  @Field(() => EventsOutputType)
+  events: EventsOutputType;
 
   @Field(() => ComicListOutputType)
   comics: ComicListOutputType;

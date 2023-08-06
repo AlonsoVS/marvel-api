@@ -1,6 +1,5 @@
 import {
   BaseHttpResponse,
-  BaseHttpResponseData,
   ComicList,
   Events,
   ResponseURL,
@@ -9,9 +8,7 @@ import {
   Thumbnail,
 } from 'src/shared';
 
-export type CreatorsHttpResponse = BaseHttpResponse<
-  BaseHttpResponseData<CharacterHttpDto>
->;
+export type CreatorsHttpResponse = BaseHttpResponse<CharacterHttpDto>;
 
 export type CharacterHttpDto = {
   id: number;
@@ -25,7 +22,7 @@ export type CharacterHttpDto = {
   urls: ResponseURL[];
   thumbnail: Thumbnail;
   stories: Stories;
-  events: Events[];
+  events: Events;
   series: SeriesList;
   comics: ComicList;
 };

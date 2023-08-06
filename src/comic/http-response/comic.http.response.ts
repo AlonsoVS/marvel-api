@@ -1,6 +1,5 @@
 import {
   BaseHttpResponse,
-  BaseHttpResponseData,
   ComicSummary,
   Events,
   ResponseURL,
@@ -9,9 +8,7 @@ import {
   Thumbnail,
 } from 'src/shared';
 
-export type ComicHttpResponse = BaseHttpResponse<
-  BaseHttpResponseData<ComicHttpDto>
->;
+export type ComicHttpResponse = BaseHttpResponse<ComicHttpDto>;
 
 export type ComicHttpDto = {
   id: number;
@@ -64,9 +61,9 @@ export type Characters = {
 };
 
 export type CharacterSummary = {
-  resourceURI: string;
-  name: string;
-  role: string;
+  resourceURI?: string;
+  name?: string;
+  role?: string;
 };
 
 export type ComicDate = {

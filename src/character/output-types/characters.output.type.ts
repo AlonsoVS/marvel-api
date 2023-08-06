@@ -3,7 +3,7 @@ import {
   ComicListOutputType,
   EventsOutputType,
   ResponseURLOutputType,
-  SeriesSummaryOutputType,
+  SeriesOutputType,
   StoriesOutputType,
   ThumbnailOutputType,
 } from 'src/shared';
@@ -28,8 +28,8 @@ export class CharactersOutputType {
   @Field(() => [ResponseURLOutputType])
   urls: ResponseURLOutputType[];
 
-  @Field(() => SeriesSummaryOutputType)
-  series: SeriesSummaryOutputType;
+  @Field(() => SeriesOutputType)
+  series: SeriesOutputType;
 
   @Field(() => ThumbnailOutputType)
   thumbnail: ThumbnailOutputType;
@@ -37,8 +37,8 @@ export class CharactersOutputType {
   @Field(() => StoriesOutputType)
   stories: StoriesOutputType;
 
-  @Field(() => [EventsOutputType])
-  events: EventsOutputType[];
+  @Field(() => EventsOutputType)
+  events: EventsOutputType;
 
   @Field(() => ComicListOutputType)
   comics: ComicListOutputType;

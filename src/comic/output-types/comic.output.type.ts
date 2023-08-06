@@ -133,6 +133,6 @@ export class ComicOutputType {
   @Field(() => StoriesOutputType)
   stories: StoriesOutputType;
 
-  @Field(() => [EventsOutputType])
-  events: EventsOutputType[];
+  @Field(() => EventsOutputType)
+  events: EventsOutputType;
 }

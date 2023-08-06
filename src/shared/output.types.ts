@@ -54,6 +54,21 @@ export class SeriesSummaryOutputType {
 }
 
 @ObjectType()
+export class SeriesOutputType {
+  @Field(() => Int)
+  available: number;
+
+  @Field(() => String)
+  collectionURI: string;
+
+  @Field(() => [SeriesSummaryOutputType])
+  items: SeriesSummaryOutputType[];
+
+  @Field(() => Int)
+  returned: number;
+}
+
+@ObjectType()
 export class StoriesItemOutputType {
   @Field(() => String)
   resourceURI: string;

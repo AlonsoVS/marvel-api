@@ -33,6 +33,14 @@ export type StoriesItem = {
   type: string;
 };
 
+export type SeriesList = {
+  available: number;
+  collectionURI: string;
+  items: SeriesSummary[];
+  returned: number;
+};
+
+
 export type SeriesSummary = {
   resourceURI: string;
   name: string;
