@@ -9,11 +9,6 @@ export class CharacterResolver {
 
   @Query(() => CharactersResponseOutputType)
   getAllCharacters() {
-    return this.characterService.getAll().pipe(
-      map((response) => {
-        console.log('Response: ', response);
-        return response;
-      }),
-    );
+    return this.characterService.getAll();
   }
 }

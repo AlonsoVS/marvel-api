@@ -45,7 +45,7 @@ export function BaseResponseOutputType<T>(ItemType: Type<T>): any {
 }
 
 @ObjectType()
-export class SeriesOutputType {
+export class SeriesSummaryOutputType {
   @Field(() => String)
   resourceURI: string;
 
@@ -120,4 +120,28 @@ export class EventsOutputType {
 
   @Field(() => Int)
   returned: number;
+}
+
+@ObjectType()
+export class ComicListOutputType {
+  @Field(() => Int)
+  available: number;
+
+  @Field(() => Int)
+  returned: number;
+
+  @Field(() => String)
+  collectionURI: string;
+
+  @Field(() => [ComicSummaryOutputType])
+  items: ComicSummaryOutputType[];
+}
+
+@ObjectType()
+export class ComicSummaryOutputType {
+  @Field(() => String)
+  resourceURI: string;
+
+  @Field(() => String)
+  name: string;
 }

@@ -4,7 +4,7 @@ import {
   ComicSummary,
   Events,
   ResponseURL,
-  Series,
+  SeriesSummary,
   Stories,
   Thumbnail,
 } from 'src/shared';
@@ -31,7 +31,7 @@ export type ComicHttpDto = {
   textObjects: TextObject[];
   resourceURI: string;
   urls: ResponseURL[];
-  series: Series;
+  series: SeriesSummary;
   variants: ComicSummary[];
   collections: ComicSummary[];
   collectedIssues: ComicSummary[];

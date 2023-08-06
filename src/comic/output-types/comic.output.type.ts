@@ -3,24 +3,16 @@ import { CreatorsOutputType } from './creators.output.type';
 import { CharactersListOutputType } from './characters.list.output.type';
 import { TextObjectOutputType } from './text.object.output.type';
 import {
+  ComicSummaryOutputType,
   EventsOutputType,
   ResponseURLOutputType,
-  SeriesOutputType,
+  SeriesSummaryOutputType,
   StoriesOutputType,
   ThumbnailOutputType,
 } from 'src/shared';
 
 @ObjectType()
 export class EventSummaryOutputType {
-  @Field(() => String)
-  resourceURI: string;
-
-  @Field(() => String)
-  name: string;
-}
-
-@ObjectType()
-export class ComicSummaryOutputType {
   @Field(() => String)
   resourceURI: string;
 
@@ -108,8 +100,8 @@ export class ComicOutputType {
   @Field(() => [ResponseURLOutputType])
   urls: ResponseURLOutputType[];
 
-  @Field(() => SeriesOutputType)
-  series: SeriesOutputType;
+  @Field(() => SeriesSummaryOutputType)
+  series: SeriesSummaryOutputType;
 
   @Field(() => [ComicSummaryOutputType])
   variants: ComicSummaryOutputType[];

@@ -33,7 +33,7 @@ export type StoriesItem = {
   type: string;
 };
 
-export type Series = {
+export type SeriesSummary = {
   resourceURI: string;
   name: string;
 };
@@ -41,4 +41,11 @@ export type Series = {
 export type Thumbnail = {
   path: string;
   extension: string;
+};
+
+export type ComicList = {
+  available: number;
+  returned: number;
+  collectionURI: string;
+  items: ComicSummary[];
 };

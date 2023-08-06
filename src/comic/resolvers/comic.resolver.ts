@@ -7,7 +7,7 @@ export class ComicResolver {
   constructor(private comicService: ComicService) {}
 
   @Query(() => ComicResponseOutputType)
-  getAll() {
+  getAllComics() {
     return this.comicService.getAll();
   }
 }

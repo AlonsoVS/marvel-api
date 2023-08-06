@@ -9,15 +9,39 @@ import {
 } from 'src/shared';
 
 @ObjectType()
-export class CharactersOutputType {
+export class SeriesList {
+  @Field(() => Int)
+  available: number;
+
+  @Field(() => Int)
+  returned: number;
+
+  @Field(() => String)
+  collectionURI: string;
+
+  @Field(() => [SeriesSummaryOutputType])
+  items: SeriesSummaryOutputType[];
+}
+
+@ObjectType()
+export class CreatorOutputType {
   @Field(() => Int)
   id: number;
 
   @Field(() => String)
-  name: string;
+  firstName: string;
 
-  @Field(() => String, { nullable: true })
-  description: string | null;
+  @Field(() => String)
+  middleName: string;
+
+  @Field(() => String)
+  lastName: string;
+
+  @Field(() => String)
+  suffix: string;
+
+  @Field(() => String)
+  fullName: string;
 
   @Field(() => String)
   modified: string;
@@ -28,8 +52,8 @@ export class CharactersOutputType {
   @Field(() => [ResponseURLOutputType])
   urls: ResponseURLOutputType[];
 
-  @Field(() => SeriesSummaryOutputType)
-  series: SeriesSummaryOutputType;
+  @Field(() => SeriesList)
+  series: SeriesList;
 
   @Field(() => ThumbnailOutputType)
   thumbnail: ThumbnailOutputType;

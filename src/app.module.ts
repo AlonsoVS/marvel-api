@@ -6,16 +6,18 @@ import { ApolloDriver } from '@nestjs/apollo';
 import { ComicModule } from './comic';
 import { CharacterModule } from './character';
 import { SharedModule } from './shared';
+import { CreatorModule } from './creator';
 
 @Module({
   imports: [
     SharedModule,
+    CreatorModule,
     ComicModule,
     CharacterModule,
     GraphQLModule.forRoot({
       driver: ApolloDriver,
       autoSchemaFile: true,
-      include: [ComicModule, CharacterModule],
+      include: [ComicModule, CharacterModule, CreatorModule],
     }),
   ],
   controllers: [AppController],
