@@ -1,6 +1,17 @@
-import { BaseHttpResponse } from "src/shared";
+import {
+  BaseHttpResponse,
+  BaseHttpResponseData,
+  ComicSummary,
+  Events,
+  ResponseURL,
+  Series,
+  Stories,
+  Thumbnail,
+} from 'src/shared';
 
-export type ComicHttpResponse = BaseHttpResponse<ComicHttpDto>
+export type ComicHttpResponse = BaseHttpResponse<
+  BaseHttpResponseData<ComicHttpDto>
+>;
 
 export type ComicHttpDto = {
   id: number;
@@ -34,11 +45,6 @@ export type ComicHttpDto = {
   events: Events[];
 };
 
-export type ComicSummary = {
-  resourceURI: string;
-  name: string;
-}
-
 export type ComicImage = {
   path: string;
   extension: string;
@@ -48,36 +54,6 @@ export type TextObject = {
   type: string;
   language: string;
   text: string;
-};
-
-export type ResponseURL = {
-  type: string;
-  url: string;
-};
-
-export type Events = {
-  available: number;
-  collectionURI: string;
-  items: EventSummary[];
-  returned: number;
-};
-
-export type EventSummary = {
-  resourceURI: string;
-  name: string;
-};
-
-export type Stories = {
-  available: number;
-  collectionURI: string;
-  items: StoriesItem[];
-  returned: number;
-};
-
-export type StoriesItem = {
-  resourceURI: string;
-  name: string;
-  type: string;
 };
 
 export type Characters = {
@@ -93,11 +69,6 @@ export type CharacterSummary = {
   role: string;
 };
 
-export type Series = {
-  resourceURI: string;
-  name: string;
-};
-
 export type ComicDate = {
   type: string;
   date: string;
@@ -106,11 +77,6 @@ export type ComicDate = {
 export type ComicPrice = {
   type: string;
   price: number;
-};
-
-export type Thumbnail = {
-  path: string;
-  extension: string;
 };
 
 export type Creators = {

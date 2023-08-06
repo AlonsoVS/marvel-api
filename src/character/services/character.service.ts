@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { ComicHttpResponse } from '../http-response';
 import { DataService, ExternalServices } from 'src/shared';
+import { CharactersHttpResponse } from '../http-response';
 
 @Injectable()
-export class ComicService {
+export class CharacterService {
   private constants = {
-    externalService: ExternalServices.COMICS,
+    externalService: ExternalServices.CHARACTERS,
   };
 
   constructor(private dataService: DataService) {}
   getAll() {
-    return this.dataService.getAll<ComicHttpResponse>(
+    return this.dataService.getAll<CharactersHttpResponse>(
       this.constants.externalService,
     );
   }

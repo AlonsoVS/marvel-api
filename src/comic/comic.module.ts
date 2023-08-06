@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
 import { ComicService } from './services';
 import { ComicResolver } from './resolvers';
+import { SharedModule } from 'src/shared';
 
 @Module({
-  imports: [HttpModule],
+  imports: [SharedModule],
   providers: [ComicResolver, ComicService],
 })
 export class ComicModule {}

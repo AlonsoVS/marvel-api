@@ -1,34 +1,14 @@
 import { Field, Float, Int, ObjectType } from '@nestjs/graphql';
-import { SeriesOutputType } from './series.output.type';
-import { ThumbnailOutputType } from './thumbnail.output.type';
 import { CreatorsOutputType } from './creators.output.type';
-import { CharactersOutputType } from './characters.output.type';
-import { StoriesOutputType } from './stories.output.type';
+import { CharactersListOutputType } from './characters.list.output.type';
 import { TextObjectOutputType } from './text.object.output.type';
-
-@ObjectType()
-export class ResponseURL {
-  @Field(() => String)
-  type: string;
-
-  @Field(() => String)
-  url: string;
-}
-
-@ObjectType()
-export class EventsOutputType {
-  @Field(() => Int)
-  available: number;
-
-  @Field(() => String)
-  collectionURI: string;
-
-  @Field(() => [EventSummaryOutputType])
-  items: EventSummaryOutputType[];
-
-  @Field(() => Int)
-  returned: number;
-}
+import {
+  EventsOutputType,
+  ResponseURLOutputType,
+  SeriesOutputType,
+  StoriesOutputType,
+  ThumbnailOutputType,
+} from 'src/shared';
 
 @ObjectType()
 export class EventSummaryOutputType {
@@ -70,7 +50,7 @@ export class ComicPriceOutputType {
 export class ImageOutputType {
   @Field(() => String)
   path: string;
-  
+
   @Field(() => String)
   extension: string;
 }
@@ -125,8 +105,8 @@ export class ComicOutputType {
   @Field(() => String)
   resourceURI: string;
 
-  @Field(() => [ResponseURL])
-  urls: ResponseURL[];
+  @Field(() => [ResponseURLOutputType])
+  urls: ResponseURLOutputType[];
 
   @Field(() => SeriesOutputType)
   series: SeriesOutputType;
@@ -155,8 +135,8 @@ export class ComicOutputType {
   @Field(() => CreatorsOutputType)
   creators: CreatorsOutputType;
 
-  @Field(() => CharactersOutputType)
-  characters: CharactersOutputType;
+  @Field(() => CharactersListOutputType)
+  characters: CharactersListOutputType;
 
   @Field(() => StoriesOutputType)
   stories: StoriesOutputType;

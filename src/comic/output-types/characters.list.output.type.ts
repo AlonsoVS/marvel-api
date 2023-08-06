@@ -12,7 +12,7 @@ export class CharacterSummaryOutputType {
 }
 
 @ObjectType()
-export class CharactersOutputType {
+export class CharactersListOutputType {
   @Field(() => Int)
   available: number;
 

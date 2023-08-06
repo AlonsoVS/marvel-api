@@ -1,20 +1,9 @@
-import { Field, Float, Int, ObjectType } from '@nestjs/graphql';
+import { Field, ObjectType } from '@nestjs/graphql';
 import { ComicOutputType } from './comic.output.type';
+import { BaseResponseDataOutputType } from 'src/shared';
 
 @ObjectType()
-export class ComicResponseDataOutputType {
-  @Field(() => Int)
-  offset: number;
-
-  @Field(() => Int)
-  limit: number;
-
-  @Field(() => Int)
-  total: number;
-
-  @Field(() => Int)
-  count: number;
-
-  @Field(() => ComicOutputType)
+export class ComicResponseDataOutputType extends BaseResponseDataOutputType {
+  @Field(() => [ComicOutputType])
   results: ComicOutputType[];
 }
