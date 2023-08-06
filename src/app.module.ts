@@ -18,6 +18,7 @@ import { CreatorModule } from './creator';
       driver: ApolloDriver,
       autoSchemaFile: true,
       include: [ComicModule, CharacterModule, CreatorModule],
+      path: '/',
     }),
   ],
   controllers: [AppController],
