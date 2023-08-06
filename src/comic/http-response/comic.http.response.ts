@@ -1,20 +1,6 @@
-export type ComicHttpResponse = {
-  code: number;
-  status: string;
-  copyright: string;
-  attributionText: string;
-  attributionHTML: string;
-  etag: string;
-  data: ComicHttpResponseData;
-};
+import { BaseHttpResponse } from "src/shared";
 
-export type ComicHttpResponseData = {
-  offset: number;
-  limit: number;
-  total: number;
-  count: number;
-  results: ComicHttpDto[];
-};
+export type ComicHttpResponse = BaseHttpResponse<ComicHttpDto>
 
 export type ComicHttpDto = {
   id: number;
